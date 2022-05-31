@@ -25,6 +25,14 @@ struct ContentView: View {
         
         return amoundPerPerson
     }
+    var totalAmound: Double {
+        let tipSelection = Double(tipPercentage)
+
+        let tipValue = checkAmount / 100 * tipSelection
+        let graundTotal = checkAmount + tipValue
+
+        return graundTotal
+    }
     
     var body: some View {
         NavigationView {
@@ -51,10 +59,19 @@ struct ContentView: View {
                 } header: {
                     Text("How much tip do you want to leave?")
                 }
-                
+
                 Section {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                } header: {
+                    Text("Amound per person")
                 }
+                
+                Section {
+                    Text(totalAmound, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                } header: {
+                    Text("Total before split")
+                }
+
             }
             .navigationTitle("WeSplit")
             .toolbar{
