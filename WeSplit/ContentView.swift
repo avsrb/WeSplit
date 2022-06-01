@@ -61,8 +61,6 @@ struct ContentView: View {
 //                }
                 
                 VStack {
-                    Text("How much tip do you want to leave?")
-
                         Slider( value: $tipPercentage, in: 0...100, step: 5)
                         {
                         } minimumValueLabel: {
@@ -70,8 +68,8 @@ struct ContentView: View {
                         } maximumValueLabel: {
                             Text("100")
                         }
-//                    Text("\(Int(tipPercentage)) %")
-                    Text(tipPercentage, format: .percent)
+                    Text("\(Int(tipPercentage)) %")
+//                    Text(tipPercentage, format: .percent)
 
                 }
                 Section {
